@@ -3,7 +3,7 @@ var x = d3.scale.linear()
       .domain([0, d3.max(data)])
       .range([0, 420]);
 
-d3.select(".chart")
+d3.select(".bar-chart")
   .selectAll("div")
     .data(data)
   .enter().append("div")
