@@ -151,6 +151,66 @@
     d.value = +d.value;
     return d;
   }
+})();
+
+(function plots() {
+  var margin = {top: 20, right: 30, bottom: 30, left: 40};
+  var width = 960 - margin.left - margin.right;
+  var height = 500 - margin.top - margin.bottom;
+  var color = d3.scale.category20();
+
+  var x = d3.scale.ordinal()
+    .rangePoints([0, width], 1);
+
+  var y = d3.scale.linear()
+    .range([height, 0]);
+
+  var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom");
+
+  var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left");
+
+  var chart = d3.select(".chart_four")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate("+margin.left + ", " + margin.top + ")");
 
 
+  d3.tsv("data/data.csv", type, function(error, data) {
+    var maxValue = d3.max(data, function(d) { return d.value; });
+
+    x.domain(data.map(function(d) { return d.name; }));
+    y.domain([0, maxValue]);
+
+    var range = x.range();
+    console.log("range", range)
+    
+    chart.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate( " + x.rangeBand() + ", " +height + ")")
+      .call(xAxis);
+
+    chart.append("g")
+      .attr("class", "y axis")
+      .call(yAxis);
+
+    chart.selectAll(".point")
+      .data(data)
+    .enter().append("circle")
+      .attr("class", "point")
+      .attr("cx", function(d) { return x(d.name); })
+      .attr("cy", function(d) { return y(d.value) })
+      .attr("r", function(d) { return d.value; })
+      .style("fill", function(d) { return color(d.name) + ""; });
+
+  });
+
+  function type(d) {
+    d.value = +d.value;
+    return d;
+  }
 })();
