@@ -177,17 +177,28 @@
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
+    .attr("class", "chart_container")
     .attr("transform", "translate("+margin.left + ", " + margin.top + ")");
 
 
   d3.tsv("data/data.csv", type, function(error, data) {
     var maxValue = d3.max(data, function(d) { return d.value; });
+    margin.top = margin.top + (maxValue/2)+3;
+    margin.left = margin.left + (maxValue/2)+3;
+    margin.right = margin.right + (maxValue/2)+3;
+    margin.bottom = margin.bottom + (maxValue/2)+3;
+
 
     x.domain(data.map(function(d) { return d.name; }));
     y.domain([0, maxValue]);
 
-    var range = x.range();
-    console.log("range", range)
+     // taking in to account large circles that may extend beyond the chart's height
+    
+    d3.select(".chart_four")
+      .attr("width", width + margin.left + margin.right )
+      .attr("height", height + margin.top + margin.bottom );
+
+    chart.attr("transform", "translate("+margin.left + ", " + margin.top + ")");
     
     chart.append("g")
       .attr("class", "x axis")
