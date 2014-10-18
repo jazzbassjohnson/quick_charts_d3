@@ -91,6 +91,7 @@
   var margin = {top: 20, right: 30, bottom: 30, left: 40};
   var width = 960 - margin.left - margin.right;
   var height = 500 - margin.top - margin.bottom;
+  var color = d3.scale.category20();
 
   // x scale range, below the domain will influence this number
   var x = d3.scale.ordinal()
@@ -105,7 +106,8 @@
 
   var yAxis = d3.svg.axis()
     .scale(y)
-    .orient("left");
+    .orient("left")
+    .tickFormat(function(d) { return d + "%"; });
 
   var chart = d3.select(".chart_three")
     .attr("width", width + margin.left + margin.right)
@@ -125,7 +127,13 @@
 
     chart.append("g")
       .attr("class", "y axis")
-      .call(yAxis);
+      .call(yAxis)
+    .append("text")
+    .attr("transform", "rotate(-90)")
+    .attr("y", 6)
+    .attr("dy", ".71em")
+    .style("text-anchor", "end")
+    .text("Frequency");
 
     chart.selectAll(".bar")
       .data(data)
@@ -134,7 +142,8 @@
       .attr("x", function(d) { return x(d.name); })
       .attr("y", function(d) { return y(d.value); })
       .attr("height", function(d) { return height - y(d.value) })
-      .attr("width", x.rangeBand());
+      .attr("width", x.rangeBand())
+      .style("fill", function(d) { return "" + color(d.value); });
 
   });
 
