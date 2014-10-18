@@ -1,0 +1,25 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/Users/garyjohnson/.nvm/v0.10.28/bin/npm', 'install' ]
+2 info using npm@2.0.0
+3 info using node@v0.10.28
+4 error install Couldn't read dependencies
+5 verbose stack Error: Invalid name: "Quick Charts"
+5 verbose stack     at ensureValidName (/Users/garyjohnson/.nvm/v0.10.28/lib/node_modules/npm/node_modules/normalize-package-data/lib/fixer.js:315:15)
+5 verbose stack     at Object.module.exports.fixNameField (/Users/garyjohnson/.nvm/v0.10.28/lib/node_modules/npm/node_modules/normalize-package-data/lib/fixer.js:204:5)
+5 verbose stack     at /Users/garyjohnson/.nvm/v0.10.28/lib/node_modules/npm/node_modules/normalize-package-data/lib/normalize.js:30:38
+5 verbose stack     at Array.forEach (native)
+5 verbose stack     at normalize (/Users/garyjohnson/.nvm/v0.10.28/lib/node_modules/npm/node_modules/normalize-package-data/lib/normalize.js:29:15)
+5 verbose stack     at final (/Users/garyjohnson/.nvm/v0.10.28/lib/node_modules/npm/node_modules/read-package-json/read-json.js:342:33)
+5 verbose stack     at then (/Users/garyjohnson/.nvm/v0.10.28/lib/node_modules/npm/node_modules/read-package-json/read-json.js:126:33)
+5 verbose stack     at /Users/garyjohnson/.nvm/v0.10.28/lib/node_modules/npm/node_modules/read-package-json/read-json.js:331:40
+5 verbose stack     at evalmachine.<anonymous>:266:14
+5 verbose stack     at /Users/garyjohnson/.nvm/v0.10.28/lib/node_modules/npm/node_modules/graceful-fs/graceful-fs.js:102:5
+6 verbose cwd /Users/garyjohnson/Documents/Let's Make a Bar Chart
+7 error Darwin 13.4.0
+8 error argv "node" "/Users/garyjohnson/.nvm/v0.10.28/bin/npm" "install"
+9 error node v0.10.28
+10 error npm  v2.0.0
+11 error Invalid name: "Quick Charts"
+12 error If you need help, you may report this error at:
+12 error     <http://github.com/npm/npm/issues>
+13 verbose exit [ 1, true ]
