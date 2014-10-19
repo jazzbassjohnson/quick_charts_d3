@@ -225,3 +225,15 @@
     return d;
   }
 })();
+
+(function() {
+
+  // create varius accessor functions that specify the four deminions of the data to be visualized
+  function x(d) { return d.income; }
+  function y(d)  { return d.lifeExpectancy; }
+  function radius(d) { return d.population; }
+  function color(d) { return d.region; }
+  function key(d) { return d.name; }
+
+  
+})();
