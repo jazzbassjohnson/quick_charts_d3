@@ -297,6 +297,10 @@ var label = svg.append("test")
 // load json data
 d3.json("data/data.json", function(error, json) {
 
+  // add a bisector since many nation's data is sparsely defined
+  var bisect = d3.bisector(function(d) { return d[0];  });
+
+
 });
   
 
