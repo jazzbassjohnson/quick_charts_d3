@@ -235,5 +235,22 @@
   function color(d) { return d.region; }
   function key(d) { return d.name; }
 
+  //Create chart dementions
+  var margin = {top: 19.5, right: 19.5, bottom: 19.5, left: 39.5};
+  var width = 960 - margin.right;
+  var height = 500 - margin.top - margin.bottom;
+
   
+
+
+
+
+
+
+
+
+
+
+
+
 })();
