@@ -240,7 +240,22 @@
   var width = 960 - margin.right;
   var height = 500 - margin.top - margin.bottom;
 
-  
+  // make various scales
+  var xScale = d3.scale.log()
+    .domain([300, 1e5])
+    .range([0, width]);
+  var yScale = d3.scale.linear()
+    .domain([10, 85])
+    .range([height, 0]);
+  var radiusScale = d3.scale.sqrt()
+    .domain([0, 5e8])
+    .range([0, 40]);
+  var colorScale = d3.scale.category10();
+
+
+
+
+
 
 
 
