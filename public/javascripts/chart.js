@@ -253,18 +253,14 @@
   var colorScale = d3.scale.category10();
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+// create an x and y axis
+var xAxis = d3.svg.axis()
+  .scale(xScale)
+  .orient("bottom")
+  .ticks(12, d3.format(",d"));
+var yAxis = d3.svg.axis()
+  .scale(yScale)
+  .orient("left");
 
 
 
