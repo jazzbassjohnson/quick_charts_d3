@@ -325,7 +325,12 @@ d3.json("data/data.json", function(error, json) {
     .attr("height", box.height)
     .on("mouseover", enableInteration);
 
-
+  // start a transition that interpolates the data based on year
+  svg.transition()
+    .duration(30000)
+    .ease("linear")
+    tween("year", tweenYear)
+    .each("end", enableInteration);
 
   // function interpolateData(year) {
   //   return nations.map(function(d) {
