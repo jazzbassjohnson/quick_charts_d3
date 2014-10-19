@@ -262,6 +262,27 @@ var yAxis = d3.svg.axis()
   .scale(yScale)
   .orient("left");
 
+// create a svg container and set the origin
+var svg = d3.select(".chart_five").append("svg")
+  .attr("width", width + margin.left + margin.right)
+  .attr("height", height + margin.top + margin.bottom)
+.append("g")
+  .attr("transform", "translate("+ margin.left + ", " + margin.top + ")");
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 })();
