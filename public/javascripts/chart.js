@@ -300,6 +300,18 @@ d3.json("data/data.json", function(error, json) {
   // add a bisector since many nation's data is sparsely defined
   var bisect = d3.bisector(function(d) { return d[0];  });
 
+  // add a dot per nation, initialize the data at 1800, and set the colors
+  var dot = svg.append("g")
+    .attr("class", "dots")
+  .selectAll(".dot")
+    .data(interpolateData(1800))
+  .enter().append("circle")
+    .attr("class", "dot")
+    .style("fill", function(d) { return colorScale(color(d)); });
+
+
+
+
 
 });
   
