@@ -269,6 +269,16 @@ var svg = d3.select(".chart_five").append("svg")
 .append("g")
   .attr("transform", "translate("+ margin.left + ", " + margin.top + ")");
 
+// add x-axis
+svg.append("g")
+  .attr("class", "x axis")
+  .attr("transform", "translate(0, "+ height + ")")
+  .call(xAxis);
+
+// add y-axis
+svg.append("g")
+  .attr("class", "y axis")
+  .call(yAxis);
 
   
 
