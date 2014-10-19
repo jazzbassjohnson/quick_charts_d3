@@ -311,9 +311,10 @@ d3.json("data/data.json", function(error, json) {
     .call(position)
     .sort(order);
 
-  // // add a title
-  // dot.appemd("title")
-  //   .text(function(d) { return d.name; });
+  // add a title
+  dot.append("title")
+    .text(function(d) { return d.name; });
+  
 
 
 
