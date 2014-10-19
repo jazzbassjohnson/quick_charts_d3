@@ -307,9 +307,26 @@ d3.json("data/data.json", function(error, json) {
     .data(interpolateData(1800))
   .enter().append("circle")
     .attr("class", "dot")
-    .style("fill", function(d) { return colorScale(color(d)); });
+    .style("fill", function(d) { return colorScale(color(d)); })
+    .call(position)
+    .sort(order);
+
+  // // add a title
+  // dot.appemd("title")
+  //   .text(function(d) { return d.name; });
 
 
+
+  // function interpolateData(year) {
+  //   return nations.map(function(d) {
+  //     return {
+  //       name: d.name,
+  //       region: d.region,
+  //       income: interpolateValues(d.income, year),
+  //       lifeExpectancy: interpolateValues(d.lifeExpectancy, year)
+  //     };
+  //   });
+  // }
 
 
 
