@@ -287,6 +287,12 @@ svg.append("text")
   .attr("y", 6)
   .attr("dy", ".71em");
 
+// add year label
+var label = svg.append("test")
+  .attr("class", "year label")
+  .attr("text-anchor", "end")
+  .attr("y", height - 24)
+  .attr("x", width);
   
 
 
