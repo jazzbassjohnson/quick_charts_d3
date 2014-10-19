@@ -314,7 +314,16 @@ d3.json("data/data.json", function(error, json) {
   // add a title
   dot.append("title")
     .text(function(d) { return d.name; });
-  
+
+  // add an overlay for the year label
+  var box = label.node().getBBox();
+
+  var overlay = svg.append("rect")
+    .attr("x", box.x)
+    .attr("y", box.y)
+    .attr("width", box.width)
+    .attr("height", box.height)
+    .on("mouseover", enableInteration);
 
 
 
