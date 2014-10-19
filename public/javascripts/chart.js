@@ -293,6 +293,11 @@ var label = svg.append("test")
   .attr("text-anchor", "end")
   .attr("y", height - 24)
   .attr("x", width);
+
+// load json data
+d3.json("data/data.json", function(error, json) {
+
+});
   
 
 
