@@ -332,6 +332,15 @@ d3.json("data/data.json", function(error, json) {
     tween("year", tweenYear)
     .each("end", enableInteration);
 
+  // ***************  Helper Functions  ******************** //
+
+  // positions the dot based on the data
+  function position(dot) {
+    dot.attr("cx", function(d) { return xScale(x(d)); })
+      .attr("cy", function(d) { return yAxis(y(d)); })
+      .attr("r", function(d) { return radiusScale(radius(d)); });
+  }
+
   // function interpolateData(year) {
   //   return nations.map(function(d) {
   //     return {
