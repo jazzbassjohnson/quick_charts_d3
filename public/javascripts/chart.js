@@ -343,7 +343,7 @@ d3.json("data/data.json", function(error, json) {
 
   // defines a sort order so that the smallest dots are drawn on top
   function order(a,b) {
-    return radius(a) - radius(b);
+    return radius(b) - radius(a);
   }
 
 
