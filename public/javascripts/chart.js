@@ -288,7 +288,7 @@ svg.append("text")
   .attr("dy", ".71em");
 
 // add year label
-var label = svg.append("test")
+var label = svg.append("text")
   .attr("class", "year label")
   .attr("text-anchor", "end")
   .attr("y", height - 24)
@@ -317,6 +317,7 @@ d3.json("data/data.json", function(error, json) {
 
   // add an overlay for the year label
   var box = label.node().getBBox();
+  console.log("box", box);
 
   var overlay = svg.append("rect")
     .attr("x", box.x)
@@ -346,17 +347,29 @@ d3.json("data/data.json", function(error, json) {
     return radius(b) - radius(a);
   }
 
+  // after the transition finishes you can mouse over to change the year
+  function enableInteration() {
 
-  // function interpolateData(year) {
-  //   return nations.map(function(d) {
-  //     return {
-  //       name: d.name,
-  //       region: d.region,
-  //       income: interpolateValues(d.income, year),
-  //       lifeExpectancy: interpolateValues(d.lifeExpectancy, year)
-  //     };
-  //   });
-  // }
+    // create a year scale
+    var yearScale = d3.scale.linear()
+      .domain([1800, 2009])
+      .range([box.x+10, (box.x + box.width - 10)])
+      .clamp(true);
+
+ 
+  }
+
+
+  function interpolateData(year) {
+    return nations.map(function(d) {
+      return {
+        name: d.name,
+        region: d.region,
+        income: interpolateValues(d.income, year),
+        lifeExpectancy: interpolateValues(d.lifeExpectancy, year)
+      };
+    });
+  }
 
 
 
