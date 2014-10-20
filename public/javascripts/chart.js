@@ -341,6 +341,12 @@ d3.json("data/data.json", function(error, json) {
       .attr("r", function(d) { return radiusScale(radius(d)); });
   }
 
+  // defines a sort order so that the smallest dots are drawn on top
+  function order(a,b) {
+    return radius(a) - radius(b);
+  }
+
+
   // function interpolateData(year) {
   //   return nations.map(function(d) {
   //     return {
