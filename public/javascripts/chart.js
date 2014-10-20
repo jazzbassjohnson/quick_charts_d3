@@ -359,6 +359,28 @@ d3.json("data/data.json", function(error, json) {
     // cancel the current transition if any
     svg.transition().duration(0);
 
+    overlay
+      .on("mouseover", mouseover)
+      .on("mouseout", mouseout)
+      .on("mousemove", mousemove)
+      .on("touchmove", mousemove);
+
+    // mouseover function makes labels active class: true
+    function mouseover() {
+      label.classed("active", true);
+    }
+    // mouseout function makes labels active class false
+    function mouseout() {
+      label.classed("active", false);
+    }
+    // mousemove funciton changes the displayed years as mouse moves
+    function mousemove() {
+      displayYear(yearScale.invert(d3.mouse(this)[0]));
+    }
+
+
+
+
 
   }
 
