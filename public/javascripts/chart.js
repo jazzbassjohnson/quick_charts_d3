@@ -356,7 +356,10 @@ d3.json("data/data.json", function(error, json) {
       .range([box.x+10, (box.x + box.width - 10)])
       .clamp(true);
 
- 
+    // cancel the current transition if any
+    svg.transition().duration(0);
+
+
   }
 
 
